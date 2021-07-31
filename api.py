@@ -192,8 +192,17 @@ def creds(auth_type):
 @api.route('/v1/<auth_type>/sentiment/', methods=['GET'])
 def sentiment_v1(auth_type):
     if int(auth_type) == 2 :
-        username = request.authorization["username"]
-        password = request.authorization["password"]
+        try: 
+            username = request.authorization["username"]
+            password = request.authorization["password"]
+        except :
+            return {
+                'response_code': 2,
+                'username': None,
+                'results':{
+                    'error_details': 'Unkown <username> or <password>'
+                }      
+            }
     elif int(auth_type) == 1 :
         username = request.args.get('username')
         password = request.args.get('password')

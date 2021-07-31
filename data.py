@@ -13,17 +13,9 @@ creds = pd.read_csv('credentials.csv')
 #3 	Quintessa 	8790 	         0 	1
 #4 	Camden 	        4837 	         0 	0
 
-
-
-#def authenticate_user(username)
-
 def get_creds(username, password):
     line = creds[creds.username==username]
-    #print (line.password)
     if len(line.password) != 0 :
         if line['password'].item() == int(password) :
-            print ('OK')    
-            print ('====>', line['v1'], line['v2'])
-            #return (line['v1'][0], line['v2'][0])
             return (int(line['v1']), int(line['v2']))
     return (None, None)
