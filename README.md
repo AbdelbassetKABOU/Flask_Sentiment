@@ -71,7 +71,7 @@ C'est une version améliorée où le couple _user/pass_ est passé en utilisant 
 
 _Exemple :_ ```http://127.0.0.1:5000/permissions/2/```
 
-Pensez à utiliser _postman_ pour faciliter ce type de requêtes.
+Pensez à utiliser _postman_ pour faciliter ce type de requêtes (notament l'ajout de username/password).
 
 ## EndPoints
 
