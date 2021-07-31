@@ -25,10 +25,10 @@ Ce module et les modules d'accès/gestion des données d'authentification (data,
 
 
 The database contains the following fields:
-   - _**question**_: the title of the question
-  - _**subject**_: the category of the question
-   - _**correct**_: the list of correct answers
-  -  _**use**_: the type of _Multiple Choice_ _Question_ _(_MCQ) for which this question is used
+- _**question**_: the title of the question
+- _**subject**_: the category of the question
+- _**correct**_: the list of correct answers
+-  _**use**_: the type of _Multiple Choice_ _Question_ _(_MCQ) for which this question is used
 - _**responseA**_: answer A
 - _**responseB**_: answer B
 - _**responseC**_: response C
@@ -56,23 +56,26 @@ donnant plus de détails sur l'erreur recontrée
 Concernant la gestion des erreurs, notre approche consiste à inclure, dans chaque réponse, un champ baptisé _'response_code"._ En voici les différentes valeurs :
 
 |   Code             |Description|
-|----------------|-------------------------------|-----------------------------|
-|0|L'appel est correctement traité           
-|1|Type d'authentification inconnu          
-|2|Information d'authentification incorrectes ou absentes
-|3|L’appel est correct, mais la ressource n'est pas accessible pour l'utilisateur en cours
+|----------------|-----------------------------|
+|0|L'appel est correctement traité|           
+|1|Type d'authentification inconnu |         
+|2|Information d'authentification incorrectes ou absentes|
+|3|L’appel est correct, mais la ressource n'est pas accessible pour l'utilisateur en cours|
+
+
+
 
 En plus du code d'erreur, un champ supplémentaire _(error_details)_ est fourni, donnant plus de détails sur l'erreur .
 
 ## Authentication
 Deux variantes d'authentification sont supportées par notre système, chacune avec un code _"auth_type"_ différent :
 
-### _**<auth_type = 1>**_
+#### _<auth_type = 1>_
 Il s'agit d'une version simple où le couple _login/pass_ est passés via _"query arguments"_ (par opposition au _"path parameters"_).
 
 _Exemple :_ ```http://127.0.0.1:5000/permissions/1/?password=6837&username=Megan```
 
-### _**<auth_type = 2>**_
+#### _<auth_type = 2>_
 C'est une version améliorée où le couple _user/pass_ est passé en utilisant une authentification de de type _"Basic Auth"_ [3,4], i.e.
 
 >_It is a method for an HTTP user agent to provide a user name and password when making a request. In basic HTTP authentication, a request contains a header field in the form of Authorization: Basic <credentials>, where credentials is the Base64 encoding of ID and password joined by a single colon [3]_
